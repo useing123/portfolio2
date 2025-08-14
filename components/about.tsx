@@ -4,23 +4,23 @@ import { motion } from "framer-motion"
 
 const thoughtClouds = [
   {
-    title: "Engineering",
-    content: "Deep technical foundation with modern frameworks, scalable architectures, and clean code principles",
-    technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+    title: "Frontend",
+    content: "I love creating beautiful and intuitive user interfaces with modern frontend technologies.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     position: { x: "15%", y: "20%" },
     delay: 0.2,
   },
   {
-    title: "Product",
-    content: "User-centered design thinking, growth analytics, and data-driven decision making",
-    technologies: ["UX Research", "A/B Testing", "Analytics", "Growth Hacking", "User Interviews"],
+    title: "Backend",
+    content: "I have experience building scalable and reliable backend systems.",
+    technologies: ["Node.js", "Express", "PostgreSQL", "REST APIs", "GraphQL"],
     position: { x: "60%", y: "35%" },
     delay: 0.4,
   },
   {
-    title: "Philosophy",
-    content: "Right tool for the right problem. Elegant solutions that scale with purpose and intention",
-    technologies: ["Systems Thinking", "Continuous Learning", "Mentorship", "Open Source", "Innovation"],
+    title: "Design",
+    content: "I have a passion for design and creating visually appealing websites.",
+    technologies: ["Figma", "Adobe XD", "Sketch", "UI/UX Design", "Wireframing"],
     position: { x: "25%", y: "65%" },
     delay: 0.6,
   },
@@ -121,10 +121,9 @@ export const About = () => {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-serif italic text-gray-800 mb-6">The Journey</h2>
+          <h2 className="text-5xl md:text-6xl font-serif italic text-gray-800 mb-6">About Me</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Where technical mastery meets creative vision, crafting solutions that transform ideas into scalable
-            realities
+            I'm a passionate frontend developer with a love for creating beautiful and intuitive user interfaces.
           </p>
         </motion.div>
 
@@ -143,7 +142,7 @@ export const About = () => {
           className="text-center mt-20"
         >
           <blockquote className="text-2xl md:text-3xl font-serif italic text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            "The best solutions emerge when deep technical understanding meets genuine empathy for user needs"
+            "Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
           </blockquote>
           <div className="mt-6 w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full" />
         </motion.div>
@@ -156,7 +155,7 @@ export const About = () => {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <p className="text-lg text-gray-500 italic">Crafting solutions with purpose</p>
+        <p className="text-lg text-gray-500 italic">Creating beautiful and functional websites</p>
       </motion.div>
     </section>
   )

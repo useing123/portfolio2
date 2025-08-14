@@ -7,11 +7,11 @@ const skillCategories = [
   {
     title: "Frontend",
     skills: [
-      { name: "React", level: 90, experience: "2+ years" },
-      { name: "TypeScript", level: 85, experience: "2+ years" },
-      { name: "Next.js", level: 80, experience: "1+ year" },
-      { name: "Tailwind CSS", level: 85, experience: "2+ years" },
-      { name: "Framer Motion", level: 75, experience: "1+ year" },
+      { name: "React", level: 95, experience: "2+ years" },
+      { name: "Next.js", level: 90, experience: "2+ years" },
+      { name: "TypeScript", level: 90, experience: "2+ years" },
+      { name: "Tailwind CSS", level: 95, experience: "2+ years" },
+      { name: "Framer Motion", level: 80, experience: "1+ year" },
     ],
     color: "from-blue-400 to-cyan-400",
     position: { x: "10%", y: "20%" },
@@ -19,23 +19,23 @@ const skillCategories = [
   {
     title: "Backend",
     skills: [
-      { name: "Node.js", level: 85, experience: "2+ years" },
-      { name: "PostgreSQL", level: 80, experience: "1+ year" },
+      { name: "Node.js", level: 80, experience: "2+ years" },
+      { name: "Express", level: 85, experience: "2+ years" },
+      { name: "PostgreSQL", level: 75, experience: "1+ year" },
       { name: "REST APIs", level: 90, experience: "2+ years" },
-      { name: "GraphQL", level: 70, experience: "6+ months" },
-      { name: "AWS", level: 75, experience: "1+ year" },
+      { name: "GraphQL", level: 70, experience: "1+ year" },
     ],
     color: "from-purple-400 to-indigo-400",
     position: { x: "55%", y: "15%" },
   },
   {
-    title: "Product & Growth",
+    title: "Design",
     skills: [
-      { name: "Analytics", level: 85, experience: "2+ years" },
-      { name: "A/B Testing", level: 80, experience: "1+ year" },
-      { name: "User Research", level: 75, experience: "1+ year" },
-      { name: "Growth Hacking", level: 90, experience: "2+ years" },
-      { name: "Data Visualization", level: 70, experience: "1+ year" },
+      { name: "Figma", level: 90, experience: "2+ years" },
+      { name: "Adobe XD", level: 85, experience: "1+ year" },
+      { name: "Sketch", level: 80, experience: "1+ year" },
+      { name: "UI/UX Design", level: 90, experience: "2+ years" },
+      { name: "Wireframing", level: 95, experience: "2+ years" },
     ],
     color: "from-emerald-400 to-teal-400",
     position: { x: "25%", y: "60%" },
@@ -162,10 +162,9 @@ export const Skills = () => {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">Technical Mastery</h2>
+          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">My Skills</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Crafting digital experiences with a diverse toolkit, from pixel-perfect interfaces to scalable backend
-            systems
+            I have a diverse set of skills, ranging from design to frontend and backend development.
           </p>
         </motion.div>
 
@@ -184,7 +183,7 @@ export const Skills = () => {
           className="text-center mt-20"
         >
           <blockquote className="text-2xl md:text-3xl font-serif italic text-white/90 max-w-3xl mx-auto leading-relaxed">
-            "Mastery isn't about knowing every tool—it's about choosing the right one for each unique challenge"
+            "The only way to do great work is to love what you do." - Steve Jobs
           </blockquote>
           <div className="mt-6 w-24 h-1 bg-gradient-to-r from-cyan-300 to-purple-300 mx-auto rounded-full" />
         </motion.div>
@@ -197,7 +196,7 @@ export const Skills = () => {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <p className="text-lg text-white/60 italic">Building with purpose and precision</p>
+        <p className="text-lg text-white/60 italic">Continuously learning and improving</p>
       </motion.div>
     </section>
   )

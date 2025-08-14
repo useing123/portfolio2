@@ -6,13 +6,13 @@ import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
 
 const projects = [
   {
-    name: "Growth Platform",
-    role: "Full-Stack Engineer",
-    problem: "Manual invite system limiting user acquisition",
-    metric: { value: "9x", label: "Growth in daily invites" },
+    name: "E-commerce Website",
+    role: "Frontend Developer",
+    problem: "Outdated and unresponsive online store",
+    metric: { value: "50%", label: "Increase in sales" },
     description:
-      "Architected an automated invite system that transformed user acquisition, scaling from 50 to 450 daily invites through intelligent automation and user behavior analytics.",
-    techStack: ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
+      "Redesigned and developed a modern and responsive e-commerce website, resulting in a 50% increase in sales.",
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
     github: "#",
     demo: "#",
     color: "from-blue-400 to-cyan-400",
@@ -20,13 +20,13 @@ const projects = [
     delay: 0.2,
   },
   {
-    name: "Workflow Automation",
-    role: "Product Engineer",
-    problem: "Teams spending 20+ hours weekly on repetitive tasks",
-    metric: { value: "100%", label: "Process automation" },
+    name: "Portfolio Website",
+    role: "Frontend Developer",
+    problem: "Lack of online presence for a creative professional",
+    metric: { value: "100%", label: "Increase in client inquiries" },
     description:
-      "Designed and built intelligent workflow automation that eliminated manual processes, saving teams 20 hours weekly while improving accuracy and consistency.",
-    techStack: ["TypeScript", "Next.js", "Prisma", "Supabase", "Vercel"],
+      "Designed and developed a stunning portfolio website to showcase the work of a creative professional, resulting in a 100% increase in client inquiries.",
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "#",
     demo: "#",
     color: "from-purple-400 to-indigo-400",
@@ -34,13 +34,13 @@ const projects = [
     delay: 0.4,
   },
   {
-    name: "Community Platform",
-    role: "Lead Developer",
-    problem: "Fragmented communication across student organizations",
-    metric: { value: "100+", label: "Active users" },
+    name: "Blog Platform",
+    role: "Full-Stack Developer",
+    problem: "Limited functionality and poor user experience on a personal blog",
+    metric: { value: "200%", label: "Increase in user engagement" },
     description:
-      "Built a comprehensive platform connecting student organizations, enabling seamless communication and event coordination for hundreds of active community members.",
-    techStack: ["React", "Express", "MongoDB", "Socket.io", "Docker"],
+      "Built a feature-rich blog platform with a modern design and intuitive user interface, resulting in a 200% increase in user engagement.",
+    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Next.js"],
     github: "#",
     demo: "#",
     color: "from-emerald-400 to-teal-400",
@@ -223,9 +223,9 @@ export const Projects = () => {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">Crafted Solutions</h2>
+          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">My Projects</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Each project represents a journey from problem to solution, transforming challenges into scalable impact
+            Here are some of the projects I've worked on.
           </p>
         </motion.div>
 
@@ -244,7 +244,7 @@ export const Projects = () => {
           className="text-center mt-20"
         >
           <blockquote className="text-2xl md:text-3xl font-serif italic text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-            "Every great product starts with understanding the problem deeply"
+            "The details are not the details. They make the design." - Charles Eames
           </blockquote>
           <motion.a
             href="#contact"
@@ -265,7 +265,7 @@ export const Projects = () => {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <p className="text-lg text-white/60 italic">Scaling impact through thoughtful engineering</p>
+        <p className="text-lg text-white/60 italic">Creating beautiful and functional websites</p>
       </motion.div>
     </section>
   )
