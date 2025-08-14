@@ -3,9 +3,9 @@
 import { motion } from "framer-motion"
 
 const metrics = [
-  { label: "9x growth", value: "9x", delay: 0.2 },
-  { label: "100% automated", value: "100%", delay: 0.4 },
-  { label: "Hundreds of users", value: "100+", delay: 0.6 },
+  { label: "Years of Experience", value: "2+", delay: 0.2 },
+  { label: "Projects Completed", value: "10+", delay: 0.4 },
+  { label: "Happy Clients", value: "5+", delay: 0.6 },
 ]
 
 const FloatingMetric = ({ metric, index }: { metric: (typeof metrics)[0]; index: number }) => {
@@ -78,7 +78,7 @@ export const Introduction = () => {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-7xl font-serif italic text-gray-800 mb-6"
         >
-          I build products that scale
+          I build beautiful web experiences
         </motion.h2>
 
         <motion.p
@@ -87,7 +87,7 @@ export const Introduction = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl text-gray-600 font-medium max-w-2xl mx-auto"
         >
-          Software Engineer with product vision, growth mindset, and 2 years shipping impact
+          I'm a passionate frontend developer with a love for creating beautiful and intuitive user interfaces.
         </motion.p>
 
         {/* Floating metrics */}
@@ -105,7 +105,7 @@ export const Introduction = () => {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
       >
-        <p className="text-lg text-gray-500 italic">Engineering meets imagination</p>
+        <p className="text-lg text-gray-500 italic">Design meets code</p>
       </motion.div>
     </section>
   )

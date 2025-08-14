@@ -51,7 +51,7 @@ export const Hero = () => {
     <section className="flex overflow-hidden relative flex-col gap-4 justify-center items-center pt-10 w-full h-screen short:lg:pt-10 pb-footer-safe-area 2xl:pt-footer-safe-area px-sides short:lg:gap-4 lg:gap-8">
       <motion.div layout="position" transition={{ duration: DURATION, ease: EASE_OUT }}>
         <h1 className="font-serif text-5xl italic short:lg:text-8xl sm:text-8xl lg:text-9xl text-foreground">
-          Ossein®
+          My Portfolio
         </h1>
       </motion.div>
 
@@ -150,7 +150,7 @@ export const Hero = () => {
                   }}
                   className="text-base short:lg:text-lg sm:text-lg lg:text-xl !leading-[1.1] font-medium text-center text-foreground text-pretty"
                 >
-                  Engineering meets imagination. Subscribe for updates on my latest projects and insights.
+                  Welcome to my digital space. Subscribe for updates on my latest projects and insights.
                 </motion.p>
               </div>
             </motion.div>
@@ -217,26 +217,19 @@ export const Hero = () => {
             >
               <article className="relative overflow-y-auto italic p-6 h-full [&_p]:my-4">
                 <p>
-                  &quot;I believe in building products that scale not just technically, but in their impact on
-                  people&apos;s lives. Every line of code should serve a purpose, every feature should solve a real
-                  problem.
+                  "I believe in creating elegant and effective solutions to complex problems. I am passionate about building beautiful and intuitive user interfaces.
                 </p>
                 <p>
-                  My approach combines technical depth with product intuition. I don&apos;t just implement features—I
-                  question assumptions, measure outcomes, and iterate based on real user feedback.
+                  My approach is to combine a deep understanding of the user's needs with a passion for clean, efficient code. I am always learning and striving to improve my skills.
                 </p>
                 <p>
-                  Growth isn&apos;t just about numbers; it&apos;s about creating sustainable systems that empower users
-                  and teams. Whether it&apos;s automating workflows to save hours of manual work or designing systems
-                  that handle hundreds of concurrent users, I focus on solutions that compound over time.
+                  I am a strong believer in the power of collaboration and teamwork. I enjoy working with others to create amazing products that people love to use.
                 </p>
                 <p>
-                  I value simplicity in complexity, finding elegant solutions to challenging problems. The best code is
-                  not just functional—it&apos;s maintainable, scalable, and tells a story.
+                  I am always looking for new challenges and opportunities to grow as a developer. I am excited to see what the future holds.
                 </p>
                 <p>
-                  Join me on this journey of transforming visions into scalable realities, one thoughtful solution at a
-                  time.&quot;
+                  Join me on this journey of creating amazing things."
                 </p>
               </article>
             </motion.div>
