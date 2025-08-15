@@ -1,75 +1,17 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { GitHubLogoIcon, CheckIcon, CopyIcon } from "@radix-ui/react-icons"
 import { Button } from "./ui/button"
+import { useIsMobile } from "@/hooks/use-mobile"
 
-const StarField = () => {
-  const stars = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    delay: Math.random() * 2,
-  }))
 
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      {stars.map((star) => (
-        <motion.div
-          key={star.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{
-            duration: 3 + star.delay,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: star.delay,
-          }}
-          className="absolute bg-white rounded-full"
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            width: star.size,
-            height: star.size,
-          }}
-        />
-      ))}
-    </div>
-  )
-}
-
-const GitHubContribution = () => {
-  const weeks = Array.from({ length: 12 }, (_, i) => i)
-  const days = Array.from({ length: 7 }, (_, i) => i)
-
-  return (
-    <div className="grid grid-cols-12 gap-1">
-      {weeks.map((week) => (
-        <div key={week} className="grid grid-rows-7 gap-1">
-          {days.map((day) => {
-            const intensity = Math.random()
-            const opacity = intensity > 0.7 ? 1 : intensity > 0.4 ? 0.6 : intensity > 0.2 ? 0.3 : 0.1
-            return (
-              <motion.div
-                key={`${week}-${day}`}
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: (week * 7 + day) * 0.01 }}
-                className="w-3 h-3 bg-green-400 rounded-sm"
-                style={{ opacity }}
-              />
-            )
-          })}
-        </div>
-      ))}
-    </div>
-  )
-}
 
 const EmailCopyButton = () => {
   const [copied, setCopied] = useState(false)
-  const email = "hello@ossein.dev"
+  const email = "useing322@gmail.com"
+  const isMobile = useIsMobile()
 
   const handleCopy = async () => {
     try {
@@ -84,7 +26,7 @@ const EmailCopyButton = () => {
   return (
     <motion.button
       onClick={handleCopy}
-      whileHover={{ scale: 1.02 }}
+      whileHover={!isMobile ? { scale: 1.02 } : {}}
       whileTap={{ scale: 0.98 }}
       className="group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 w-full"
     >
@@ -113,9 +55,10 @@ const EmailCopyButton = () => {
 }
 
 export const Contact = () => {
+  const isMobile = useIsMobile()
+
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-orange-200 via-purple-600 to-indigo-900 overflow-hidden py-20">
-      <StarField />
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center justify-center min-h-screen">
@@ -125,9 +68,9 @@ export const Contact = () => {
           transition={{ duration: 1 }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">Let's Connect</h2>
+          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">Contact Me</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Ready to transform ideas into scalable solutions? Let's build something extraordinary together.
+            I'm currently available for freelance work. If you have a project in mind, I'd love to hear from you.
           </p>
         </motion.div>
 
@@ -157,14 +100,13 @@ export const Contact = () => {
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-4">
               <GitHubLogoIcon className="w-6 h-6 text-white" />
-              <span className="text-white font-medium">GitHub Activity</span>
+              <span className="text-white font-medium">GitHub Profile</span>
             </div>
-            <GitHubContribution />
             <motion.a
-              href="https://github.com"
+              href="https://github.com/useing123"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.02 }}
+              whileHover={!isMobile ? { scale: 1.02 } : {}}
               className="inline-block mt-3 text-white/60 hover:text-white text-sm transition-colors"
             >
               View full profile →
@@ -178,10 +120,10 @@ export const Contact = () => {
           {/* Social links */}
           <div className="flex justify-center gap-4 mt-6 pt-6 border-t border-white/20">
             <motion.a
-              href="https://github.com"
+              href="https://github.com/useing123"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
+              whileHover={!isMobile ? { scale: 1.1 } : {}}
               whileTap={{ scale: 0.9 }}
               className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
             >
@@ -198,7 +140,7 @@ export const Contact = () => {
           className="text-center mt-12"
         >
           <blockquote className="text-xl md:text-2xl font-serif italic text-white/90 max-w-2xl mx-auto leading-relaxed mb-6">
-            "The best collaborations start with a simple conversation"
+            "Let's build something great together."
           </blockquote>
           <Button
             size="lg"
@@ -210,30 +152,34 @@ export const Contact = () => {
       </div>
 
       {/* Floating elements */}
-      <motion.div
-        animate={{
-          y: [0, -20, 0],
-          rotate: [0, 5, -5, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-        className="absolute top-20 left-10 w-16 h-16 bg-white/10 rounded-full blur-sm"
-      />
-      <motion.div
-        animate={{
-          y: [0, 15, 0],
-          rotate: [0, -3, 3, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-        className="absolute bottom-32 right-16 w-12 h-12 bg-purple-300/20 rounded-lg blur-sm"
-      />
+      {!isMobile && (
+        <>
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+            className="absolute top-20 left-10 w-16 h-16 bg-white/10 rounded-full blur-sm"
+          />
+          <motion.div
+            animate={{
+              y: [0, 15, 0],
+              rotate: [0, -3, 3, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-32 right-16 w-12 h-12 bg-purple-300/20 rounded-lg blur-sm"
+          />
+        </>
+      )}
     </section>
   )
 }

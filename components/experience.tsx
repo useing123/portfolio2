@@ -1,94 +1,58 @@
 "use client"
 
+import { useIsMobile } from "@/hooks/use-mobile"
 import { motion } from "framer-motion"
 import { CalendarIcon, RocketIcon, PersonIcon, LightningBoltIcon } from "@radix-ui/react-icons"
 
 const experiences = [
   {
-    type: "professional",
-    title: "Full-Stack Engineer",
-    organization: "Tech Startup",
-    period: "2023 - Present",
-    description:
-      "Led development of growth platform that scaled user acquisition by 9x. Built automated systems saving 20+ hours weekly.",
-    achievements: ["9x growth in daily invites", "100% process automation", "Hundreds of active users"],
-    icon: RocketIcon,
-    color: "from-orange-400 to-red-400",
-  },
-  {
-    type: "leadership",
-    title: "Game Jam Organizer",
-    organization: "University Gaming Society",
-    period: "2022 - 2023",
-    description:
-      "Organized and led multiple 48-hour game development competitions, fostering creativity and collaboration among 100+ participants.",
-    achievements: ["5 successful game jams", "100+ participants", "Cross-disciplinary collaboration"],
-    icon: LightningBoltIcon,
-    color: "from-yellow-400 to-orange-400",
-  },
-  {
-    type: "community",
-    title: "Student Organization Leader",
-    organization: "Computer Science Society",
-    period: "2021 - 2023",
-    description:
-      "Built community platform connecting student organizations, enabling seamless communication and event coordination.",
-    achievements: ["Platform for 10+ organizations", "Streamlined event coordination", "Enhanced student engagement"],
-    icon: PersonIcon,
-    color: "from-pink-400 to-rose-400",
-  },
-  {
-    type: "projects",
-    title: "Side Projects & Experiments",
-    organization: "Personal Development",
-    period: "2020 - Present",
-    description:
-      "Continuous exploration of new technologies through personal projects, contributing to open source, and experimenting with emerging frameworks.",
+    title: "Software Engineer",
+    organization: "nFactorial School",
+    dates: "Nov 2023 - Present",
+    description: "Initially joining as an intern, I developed internal tools and quickly progressed to shipping products on internal landing pages. My work included creating growth-hacking lead magnets, developing invite systems, and implementing AI agent workflows to streamline processes for internal teams.",
     achievements: [
-      "Multiple open source contributions",
-      "Experimental tech exploration",
-      "Continuous learning mindset",
+      "Integrated PostHog analytics with UTM tags into the marketing team's business processes to enable data-driven decision-making.",
+      "Developed and deployed AI agents to optimize the sales team's workflow.",
     ],
-    icon: CalendarIcon,
-    color: "from-purple-400 to-pink-400",
   },
-]
+  {
+    title: "Chairman",
+    organization: "LYSTRA.SU (formerly theHUB students organization)",
+    dates: "2022 - June 2024",
+    description: "Progressing from a member to Chairman, I led the student organization, managing a core team of nine across marketing and development. My responsibilities included leading the organization's strategy, organizing events, and successfully orchestrating the largest GameJam in Central Asia.",
+    achievements: [
+      "Launched vguke.thehub.su, an anonymous posting platform that achieved 10-50 daily messages.",
+      "Organized and promoted gamejam.su, the largest GameJam in Central Asia.",
+      "Hosted numerous meetups and ideathons to foster community engagement.",
+      "Contributed to the development of P.Ub, a deep-tech project for offline chat, and developed the organization's landing page.",
+    ],
+  },
+];
 
 const TimelineItem = ({
   experience,
   index,
   isLast,
 }: { experience: (typeof experiences)[0]; index: number; isLast: boolean }) => {
-  const IconComponent = experience.icon
+  const isMobile = useIsMobile()
+  const IconComponent = index % 2 === 0 ? RocketIcon : PersonIcon;
+  const color = index % 2 === 0 ? "from-orange-400 to-red-400" : "from-pink-400 to-rose-400";
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: isMobile ? 0 : index % 2 === 0 ? -50 : 50, y: isMobile ? 20 : 0 }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: 0.8, delay: index * 0.2 }}
       className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} mb-16`}
     >
       {/* Content Card */}
       <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
         <motion.div
-          whileHover={{ scale: 1.02, y: -5 }}
+          whileHover={!isMobile ? { scale: 1.02, y: -5 } : {}}
           className="bg-white/80 backdrop-blur-sm border border-orange-200/50 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
         >
           <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
-            <div
-              className={`px-3 py-1 rounded-full text-xs font-medium ${
-                experience.type === "professional"
-                  ? "bg-blue-100 text-blue-700"
-                  : experience.type === "leadership"
-                    ? "bg-green-100 text-green-700"
-                    : experience.type === "community"
-                      ? "bg-purple-100 text-purple-700"
-                      : "bg-orange-100 text-orange-700"
-              }`}
-            >
-              {experience.type}
-            </div>
-            <span className="text-sm text-gray-500">{experience.period}</span>
+            <span className="text-sm text-gray-500">{experience.dates}</span>
           </div>
 
           <h3 className="text-2xl font-serif italic text-gray-800 mb-1">{experience.title}</h3>
@@ -118,7 +82,7 @@ const TimelineItem = ({
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
-          className={`w-16 h-16 rounded-full bg-gradient-to-br ${experience.color} flex items-center justify-center shadow-lg z-10`}
+          className={`w-16 h-16 rounded-full bg-gradient-to-br ${color} flex items-center justify-center shadow-lg z-10`}
         >
           <IconComponent className="w-8 h-8 text-white" />
         </motion.div>
@@ -176,15 +140,21 @@ const FloatingStar = ({
 }
 
 export const Experience = () => {
+  const isMobile = useIsMobile()
+
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-purple-400 via-pink-300 to-orange-200 overflow-hidden py-20">
       {/* Floating stars for dawn atmosphere */}
-      <FloatingStar delay={0.5} size={20} position={{ x: "10%", y: "15%" }} />
-      <FloatingStar delay={1.2} size={16} position={{ x: "85%", y: "25%" }} />
-      <FloatingStar delay={0.8} size={24} position={{ x: "15%", y: "60%" }} />
-      <FloatingStar delay={1.5} size={18} position={{ x: "80%", y: "70%" }} />
-      <FloatingStar delay={0.3} size={22} position={{ x: "50%", y: "10%" }} />
-      <FloatingStar delay={1.8} size={14} position={{ x: "75%", y: "45%" }} />
+      {!isMobile && (
+        <>
+          <FloatingStar delay={0.5} size={20} position={{ x: "10%", y: "15%" }} />
+          <FloatingStar delay={1.2} size={16} position={{ x: "85%", y: "25%" }} />
+          <FloatingStar delay={0.8} size={24} position={{ x: "15%", y: "60%" }} />
+          <FloatingStar delay={1.5} size={18} position={{ x: "80%", y: "70%" }} />
+          <FloatingStar delay={0.3} size={22} position={{ x: "50%", y: "10%" }} />
+          <FloatingStar delay={1.8} size={14} position={{ x: "75%", y: "45%" }} />
+        </>
+      )}
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -194,10 +164,9 @@ export const Experience = () => {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">The Journey</h2>
+          <h2 className="text-5xl md:text-6xl font-serif italic text-white mb-6">My Experience</h2>
           <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            From student organizations to professional impact, each experience has shaped my approach to building
-            meaningful solutions
+            I have a diverse background in web development, with experience in both professional and freelance settings.
           </p>
         </motion.div>
 
@@ -221,7 +190,7 @@ export const Experience = () => {
           className="text-center mt-20"
         >
           <blockquote className="text-2xl md:text-3xl font-serif italic text-white/90 max-w-3xl mx-auto leading-relaxed">
-            "Every experience teaches something valuable—the key is staying curious and applying those lessons forward"
+            "The only source of knowledge is experience." - Albert Einstein
           </blockquote>
           <div className="mt-6 w-24 h-1 bg-gradient-to-r from-yellow-300 to-orange-300 mx-auto rounded-full" />
         </motion.div>
@@ -234,7 +203,7 @@ export const Experience = () => {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <p className="text-lg text-white/70 italic">Growing through diverse experiences</p>
+        <p className="text-lg text-white/70 italic">Always learning and growing</p>
       </motion.div>
     </section>
   )

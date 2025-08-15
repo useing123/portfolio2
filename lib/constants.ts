@@ -2,8 +2,9 @@ export const TABLES = {
   EMAIL_LIST: "email-list",
 };
 
-export const socialLinks = {
-  instagram: "https://www.instagram.com/joyco.studio",
-  x: "https://x.com/joyco_studio",
-  github: "https://github.com/joyco-studio",
+export const SOCIAL_LINKS = {
+  X: "https://x.com/useing2",
+  LinkedIn: "https://www.linkedin.com/in/ossein/",
+  Instagram: "https://www.instagram.com/feweeksaway/",
+  GitHub: "https://github.com/useing123",
 };

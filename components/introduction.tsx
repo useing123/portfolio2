@@ -1,14 +1,17 @@
 "use client"
 
+import { useIsMobile } from "@/hooks/use-mobile"
 import { motion } from "framer-motion"
 
 const metrics = [
-  { label: "Years of Experience", value: "2+", delay: 0.2 },
-  { label: "Projects Completed", value: "10+", delay: 0.4 },
-  { label: "Happy Clients", value: "5+", delay: 0.6 },
+  { label: "Years of Experience", value: "2", delay: 0.2 },
+  { label: "Projects Completed", value: "15+", delay: 0.4 },
+  { label: "Happy Clients", value: "12", delay: 0.6 },
 ]
 
 const FloatingMetric = ({ metric, index }: { metric: (typeof metrics)[0]; index: number }) => {
+  const isMobile = useIsMobile()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, rotate: -10 }}
@@ -21,10 +24,14 @@ const FloatingMetric = ({ metric, index }: { metric: (typeof metrics)[0]; index:
       }}
     >
       <motion.div
-        animate={{
-          y: [0, -10, 0],
-          rotate: [0, 5, 0],
-        }}
+        animate={
+          !isMobile
+            ? {
+                y: [0, -10, 0],
+                rotate: [0, 5, 0],
+              }
+            : {}
+        }
         transition={{
           duration: 3 + index,
           repeat: Number.POSITIVE_INFINITY,
@@ -44,6 +51,8 @@ const FloatingShape = ({
   size,
   position,
 }: { delay: number; size: number; position: { x: string; y: string } }) => {
+  const isMobile = useIsMobile()
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
@@ -53,7 +62,7 @@ const FloatingShape = ({
       style={{ left: position.x, top: position.y }}
     >
       <motion.div
-        animate={{ rotate: 360 }}
+        animate={!isMobile ? { rotate: 360 } : {}}
         transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         className="bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg"
         style={{ width: size, height: size }}
@@ -78,7 +87,7 @@ export const Introduction = () => {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-7xl font-serif italic text-gray-800 mb-6"
         >
-          I build beautiful web experiences
+          I'm a Software Engineer with 2 years of experience with a focus on growth and UX experience.
         </motion.h2>
 
         <motion.p

@@ -52,7 +52,7 @@ export const Newsletter = () => {
         transition={{ duration: DURATION, ease: EASE_OUT }}
       >
         <h1 className="font-serif text-5xl italic short:lg:text-8xl sm:text-8xl lg:text-9xl text-foreground">
-          Synecdoche®
+          Action produces information
         </h1>
       </motion.div>
 
@@ -151,9 +151,7 @@ export const Newsletter = () => {
                   }}
                   className="text-base short:lg:text-lg sm:text-lg lg:text-xl !leading-[1.1] font-medium text-center text-foreground text-pretty"
                 >
-                  Stay updated with the latest news and exclusive content!
-                  Subscribe to our newsletter today and never miss out on
-                  exciting updates.
+                  Welcome to my digital space. Subscribe for updates on my latest projects and insights.
                 </motion.p>
               </div>
             </motion.div>
@@ -229,37 +227,7 @@ export const Newsletter = () => {
             >
               <article className="relative overflow-y-auto italic p-6 h-full [&_p]:my-4">
                 <p>
-                  &quot;We stand at the forefront of a new era, where creativity
-                  meets technology to redefine what&apos;s possible. Our mission
-                  is to empower individuals and businesses alike with
-                  groundbreaking solutions that inspire change and drive
-                  progress.
-                </p>
-                <p>
-                  We stand at the forefront of a new era, where creativity meets
-                  technology to redefine what&apos;s possible. Our mission is to
-                  empower individuals and businesses alike with groundbreaking
-                  solutions that inspire change and drive progress.
-                </p>
-                <p>
-                  We believe in constant innovation, pushing boundaries to
-                  create products that are not just tools, but catalysts for
-                  transformation. We value simplicity, designing intuitive
-                  experiences that make complex tasks effortless and enjoyable.
-                  Our commitment to sustainability drives us to protect our
-                  planet while delivering exceptional value. We foster
-                  collaboration, building a community of thinkers, creators, and
-                  doers who share a vision for a better tomorrow.
-                </p>
-                <p>
-                  Our promise is to deliver cutting-edge technology that is
-                  accessible, reliable, and tailored to meet the needs of our
-                  users. We will challenge the status quo, embrace change, and
-                  lead the charge towards a brighter, more innovative future.
-                </p>
-                <p>
-                  Join us on this journey as we innovate, inspire, and ignite
-                  the spark of creativity in every corner of the globe.&quot;
+                  Welcome to my digital space. Subscribe for updates on my latest projects and insights.
                 </p>
               </article>
             </motion.div>

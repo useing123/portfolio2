@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 import { ArrowRightIcon, Cross1Icon, ChevronDownIcon } from "@radix-ui/react-icons"
 import { inputVariants } from "./ui/input"
 import { useIsV0 } from "@/lib/context"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const DURATION = 0.3
 const DELAY = DURATION
@@ -24,6 +25,7 @@ const SPRING = {
 
 export const Hero = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const isMobile = useIsMobile()
 
   const isInitialRender = useRef(true)
 
@@ -51,7 +53,7 @@ export const Hero = () => {
     <section className="flex overflow-hidden relative flex-col gap-4 justify-center items-center pt-10 w-full h-screen short:lg:pt-10 pb-footer-safe-area 2xl:pt-footer-safe-area px-sides short:lg:gap-4 lg:gap-8">
       <motion.div layout="position" transition={{ duration: DURATION, ease: EASE_OUT }}>
         <h1 className="font-serif text-5xl italic short:lg:text-8xl sm:text-8xl lg:text-9xl text-foreground">
-          My Portfolio
+          Gizatulla Ossein's website
         </h1>
       </motion.div>
 
@@ -217,19 +219,7 @@ export const Hero = () => {
             >
               <article className="relative overflow-y-auto italic p-6 h-full [&_p]:my-4">
                 <p>
-                  "I believe in creating elegant and effective solutions to complex problems. I am passionate about building beautiful and intuitive user interfaces.
-                </p>
-                <p>
-                  My approach is to combine a deep understanding of the user's needs with a passion for clean, efficient code. I am always learning and striving to improve my skills.
-                </p>
-                <p>
-                  I am a strong believer in the power of collaboration and teamwork. I enjoy working with others to create amazing products that people love to use.
-                </p>
-                <p>
-                  I am always looking for new challenges and opportunities to grow as a developer. I am excited to see what the future holds.
-                </p>
-                <p>
-                  Join me on this journey of creating amazing things."
+                  I believe in creating elegant and effective solutions to complex problems. I am passionate about building beautiful and intuitive user interfaces. My approach is to combine a deep understanding of the user's needs with a passion for clean, efficient code. I am always learning and striving to improve my skills. I am a strong believer in the power of collaboration and teamwork. I enjoy working with others to create amazing products that people love to use. I am always looking for new challenges and opportunities to grow as a developer. I am excited to see what the future holds. Join me on this journey of creating amazing things.
                 </p>
               </article>
             </motion.div>
@@ -237,13 +227,15 @@ export const Hero = () => {
         </AnimatePresenceGuard>
       </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      >
-        <ChevronDownIcon className="w-6 h-6 text-foreground/60" />
-      </motion.div>
+      {!isMobile && (
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <ChevronDownIcon className="w-6 h-6 text-foreground/60" />
+        </motion.div>
+      )}
     </section>
   )
 }
